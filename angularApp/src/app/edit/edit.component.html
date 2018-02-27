@@ -1,0 +1,30 @@
+<div style="text-align:center">
+	<h3>Update Product</h3>
+	<p class="validations" *ngIf="errMessage">{{errMessage}}</p>
+			<p>Name:</p>
+			<input type="text" 
+			name="theProduct.name"
+			[(ngModel)]="theProduct.name" 
+			/>
+			<!-- <div class="validations" *ngIf="!name.valid && (name.dirty || name.touched)">There is an error with the name</div> -->
+	
+			<p>Qty:</p>
+			<input type="text"
+			name= "theProduct.quantity"
+			[(ngModel)]="theProduct.quantity" 
+			/>
+			<!-- <div class="validations" *ngIf="!type.valid && (type.dirty || type.touched)">There is an error with the type</div> -->
+	
+			<p>Price:</p>
+			<input type="text"
+			name= "theProduct.price"
+			[(ngModel)]="theProduct.price"
+			/>
+			<!-- <div class="validations" *ngIf="!desc.validm && (desc.dirty || desc.touched)">There is an error with the description</div> -->
+	
+			<p>
+				<button type="button" value="Submit" (click)="onEditSubmit()">UPDATE</button>
+				<button [routerLink] = "['../../../products']">CANCEL</button>
+			</p>
+			
+</div>

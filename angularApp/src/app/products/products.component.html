@@ -1,0 +1,25 @@
+<div style="text-align:center">
+	<h3>Product List</h3>
+	<p><a href [routerLink] = "['../products/new']">Add New Product</a></p>
+	<table>
+			<tr>
+				<td>id</td>
+				<td>Name</td>
+				<td>Quantity</td>
+				<td>Price</td>
+				<td>Actions</td>
+			</tr>
+			<tr>
+			<tr *ngFor='let product of products'>
+				<td>{{ product._id }}</td>
+				<td>{{ product.name }}</td>
+				<td>{{ product.quantity }}</td>
+				<td>${{ product.price }}</td>
+				<td>
+					<button [routerLink]="['../details', product._id]">Details</button>
+					<button [routerLink]="['../products/edit', product._id]" (click)="saveIDtoService(product._id)">Edit</button>
+				</td>
+				<router-outlet></router-outlet> 
+			</tr>
+	</table>
+</div>

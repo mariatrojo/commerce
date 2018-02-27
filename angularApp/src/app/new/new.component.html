@@ -1,0 +1,53 @@
+<div style="text-align:center">
+	<h3>New Product</h3>
+	<p class="validations" *ngIf="errMessage">{{errMessage}}</p>
+
+	<div class="validations" *ngIf="!name.valid && (name.dirty || name.touched)">There is an error with the name.</div>
+	<div class="validations" *ngIf="!quantity.valid && (quantity.dirty || quantity.touched)">There is an error with the quantity.</div>
+	<div class="validations" *ngIf="!price.valid && (price.dirty || price.touched)">There is an error with the price.</div>
+
+	<form name="myForm" #myForm="ngForm">
+
+		<p>Name</p>
+		<input 
+		type="text" 
+		name="name" 
+		[(ngModel)]="newProduct.name"
+		required
+		minlength="3"
+		#name="ngModel"
+		/>
+
+		<p>Qty</p>
+		<input 
+		type="text" 
+		name= "quantity" 
+		[(ngModel)]="newProduct.quantity"
+		required
+		pattern="^$|^([0-9]|[1-9][0-9]|[1][0][0])?"
+		#quantity="ngModel"
+		/>
+
+		<p>Price</p>
+		$<input 
+		type="text" 
+		name= "price" 
+		[(ngModel)]="newProduct.price" 
+		required
+		#price="ngModel"
+		pattern="^$|^([0-9]|[1-9][0-9]|[1][0][0])?"
+		/>
+
+		<p>
+			<button type="submit" value="CREATE" (click)="onSubmit()" [disabled]="!myForm.valid">CREATE</button>
+			<button [routerLink] = "['../../products']">CANCEL</button>
+		</p>
+
+	</form>
+
+	<!-- {{ name.errors | json }}
+	{{ name.valid | json }} -->
+	
+
+
+</div>

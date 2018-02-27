@@ -1,0 +1,18 @@
+<div style="text-align:center">
+	<h3>Product Details</h3>
+
+	<p>Name: {{theProduct?.name}}</p>
+	<p>Qty: {{theProduct?.quantity}}</p>
+	<p>Price: ${{theProduct?.price}}</p>
+
+	<p>
+		<button [routerLink] = "['../../products']">BACK</button>
+		<span *ngIf="theProduct?.quantity == 0">
+				<button (click) = "onDeleteButtonClick(theProduct._id)">DELETE</button>
+		</span> 
+		<span *ngIf="theProduct?.quantity != 0">
+			<button (click) = "onDeleteButtonClick(theProduct._id)" disabled="true">DELETE</button>
+		</span>
+	</p>
+
+</div>
